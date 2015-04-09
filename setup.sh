@@ -3,6 +3,7 @@
 echo "Running vagrant configuration script"
 
 echo "Installing Java"
+sudo yum install java-1.7.0 -y
 sudo yum install java-1.7.0-openjdk -y
 export JAVA_HOME=/usr/lib/jvm/jre-1.7.0-openjdk-1.7.0.75-2.5.4.7.el7_1.x86_64
 
