@@ -15,6 +15,8 @@ Vagrant.configure(2) do |config|
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "chef/centos-7.0"
   #config.vm.box_url = BOX_URI
+  config.ssh.username = "vagrant"
+  config.ssh.password = "vagrant"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -77,6 +79,6 @@ Vagrant.configure(2) do |config|
 
   #config.vm.provider "virtualbox" do |vb|
   #  vb.gui = true
-  # end
+  #  end
 
 end
