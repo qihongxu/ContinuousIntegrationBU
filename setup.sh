@@ -44,6 +44,8 @@ echo "Running vagrant configuration script"
 echo "Installing Docker"
 sudo yum install docker -y
 sudo yum install docker-registry -y
+sudo yum update device-mapper -y
+sudo docker -d &
 
 #if [ ! -d "/usr/lib/jenkins" ]; then
 #	echo "Installing Jenkins"
