@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Git_directory="https://github.com/qihongxu/swingapp.git"
+#Git_directory="https://github.com/qihongxu/ContinuousIntegrationBU.git"
 #Java_enable=true
 #Maven_enable=true
 #Git_enable=true
@@ -8,6 +8,34 @@
 #Jenkins_enable=true
 #ProjectDownload_enable=true
 echo "Running vagrant configuration script"
+
+echo "Installing Git"
+sudo yum install git -y
+
+
+echo "Installing Docker"
+sudo yum install docker -y
+sudo yum install docker-registry -y
+sudo yum update device-mapper -y
+# sudo docker -d &
+
+echo "Installing vim"
+sudo yum install vim -y
+
+echo "Downloading Java package"
+cd docker-sample
+mkdir jdk
+cd jdk
+wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/jdk-8u40-linux-x64-b26/jdk-8u40-linux-x64.rpm
+cd .. 
+
+#echo "Pulling docker image down"
+#docker pull rootnotfound/helloworld
+
+#echo "Downloading the project"
+#cd /vagrant
+#sudo git clone $Git_directory
+
 
 #echo "Installing Java"
 #sudo yum install java-1.7.0 -y
@@ -38,15 +66,6 @@ echo "Running vagrant configuration script"
 #	cd ..
 #fi
 
-#echo "Installing Git"
-#sudo yum install git -y
-
-echo "Installing Docker"
-sudo yum install docker -y
-sudo yum install docker-registry -y
-sudo yum update device-mapper -y
-sudo docker -d &
-
 #if [ ! -d "/usr/lib/jenkins" ]; then
 #	echo "Installing Jenkins"
 #	sudo mkdir jinstall
@@ -57,17 +76,3 @@ sudo docker -d &
 #	sudo rm -r jinstall
 #	sudo service jenkins start
 #fi
-
-
-#echo "Installing vim"
-#sudo yum install vim -y
-
-#echo "Pulling docker image down"
-#docker pull rootnotfound/helloworld
-
-#echo "Downling the project"
-#cd /vagrant
-#sudo git clone $Git_directory
-
-
-#echo "Installing vagrant"
