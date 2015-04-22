@@ -9,11 +9,6 @@ FROM centos:centos7
 # You have to either start with an image that has Java 7 pre-installed, 
 # or manually download Java once, host it somewhere, and wget it.
 # RUN wget -O /tmp/jdk-8u20-linux-x64.rpm http://foo/jdk-8u20-linux-x64.rpm
-RUN mkdir jdk
-RUN cd jdk
-RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/jdk-8u40-linux-x64-b26/jdk-8u40-linux-x64.rpm
-RUN cd ..
-
 ADD ./jdk /tmp
 RUN rpm -i /tmp/jdk-8u40-linux-x64.rpm
 RUN rm /tmp/jdk-8u40-linux-x64.rpm
